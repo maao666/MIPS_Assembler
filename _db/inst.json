@@ -459,6 +459,34 @@
                 "enabled": true,
                 "value": null
             }
+        },
+        "J": {
+            "format": "J",
+            "op": {
+                "dec": 2,
+                "hex": null
+            },
+            "rs": {
+                "enabled": false
+            },
+            "rt": {
+                "enabled": false
+            },
+            "rd": {
+                "enabled": false
+            },
+            "shamt": {
+                "enabled": false,
+                "value": null
+            },
+            "funct": {
+                "enabled": false,
+                "value": null
+            },
+            "addr": {
+                "enabled": true,
+                "value": null
+            }
         }
     }
 }
