@@ -2,7 +2,7 @@
 
 ## Get Started
 
-![Screen Shot](Screen Shot.png)
+![Screen Shot](https://github.com/maao666/MIPS_Assembler/raw/master/Screen%20Shot.png)
 
 To turn `.asm` file into machine code, simply do:
 
