@@ -80,7 +80,7 @@ class mips:
         if isinstance(src, str):
             if src.startswith(self.reg.get("prefix")):
                 # Special case for register like $s0
-                src = self._convert_reg(src)
+                src = self._convert_reg(src.lower())
             elif src.startswith('#'):
                 # Special case for address like #2
                 src = src[1:]
@@ -102,7 +102,7 @@ class mips:
 
     def _parse(self, line: str, addr: int, sep=' ', end='\n') -> str:
         line = self._decommentize(line)
-        l = [i for i in line.replace(',', ' ').split(' ') if i]
+        l = [i for i in line.replace(',', ' ').split(' ') if i.strip()]
 
         if len(l) < 2:
             logging.error("Invalid Instruction {}".format(line))
