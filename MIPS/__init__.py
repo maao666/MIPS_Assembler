@@ -3,7 +3,7 @@ import logging
 
 
 class mips:
-    addr_offset = 4
+    addr_offset = 1
     label_addr = {}
 
     def __init__(self, base_address=0, reg_json="./_db/registers.json", format_json="./_db/inst_format.json", inst_json="./_db/inst.json"):
@@ -26,7 +26,8 @@ class mips:
             else:
                 if i.find(':') >= 1:
                     # save the label
-                    self.label_addr[i[:i.find(':')].strip().upper()] = addr
+                    self.label_addr[i[:i.find(':')].strip(
+                    ).upper()] = addr - 1  # fixed
                 else:
                     new.append(i)
                     addr = addr + 1
@@ -50,9 +51,9 @@ class mips:
             except Exception:
                 logging.error('Cannot convert src to integer')
         if isinstance(src, int):
-            if src<0:
+            if src < 0:
                 # 2's comp
-                return bin(src % (1<<digits))
+                return bin(src % (1 << digits))
             return bin(src)[2:].zfill(digits)
         logging.error('Unsupported src type')
         return ''
@@ -95,6 +96,8 @@ class mips:
                     src = (prev - addr) * self.addr_offset
                 else:
                     src = prev * self.addr_offset
+
+                print(self.label_addr, src)
         else:
             logging.error("What the fuck is this type {}?".format(type(src)))
         return int(src)
