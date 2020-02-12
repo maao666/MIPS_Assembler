@@ -1,7 +1,7 @@
 ADDI $zero, $s1,  4
 ADDI $zero, $s2, 3
 ADDI $zero, $s3, 1
-ADDI $zero, $s4, 1
+ADDI $zero, $s4, 2
 
 BEQ $s3, $s4, else
 ADD $s1, $s2, $s0

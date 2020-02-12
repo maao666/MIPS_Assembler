@@ -96,8 +96,6 @@ class mips:
                     src = (prev - addr) * self.addr_offset
                 else:
                     src = prev * self.addr_offset
-
-                print(self.label_addr, src)
         else:
             logging.error("What the fuck is this type {}?".format(type(src)))
         return int(src)
